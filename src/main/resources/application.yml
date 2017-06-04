@@ -12,3 +12,7 @@ demo:
   account-service:
     topic: accounts
     url: http://localhost:8080
+
+hystrix:
+  metrics:
+    enabled: false
