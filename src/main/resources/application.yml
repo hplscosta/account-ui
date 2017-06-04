@@ -8,3 +8,7 @@ spring:
 
 server:
   port: 8081
+demo:
+  account-service:
+    topic: accounts
+    url: http://localhost:8080
