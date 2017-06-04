@@ -18,6 +18,7 @@ public class AccountUiApplicationProperties {
 	@Data
 	public static class AccountServiceProperties {
 
+		private String url;
 		private String topic = "accounts";
 	}
 }
