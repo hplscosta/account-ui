@@ -1,4 +1,4 @@
-package com.demo.account.ui.account;
+package com.demo.account.ui.controller.account;
 
 import lombok.AccessLevel;
 import lombok.Getter;
