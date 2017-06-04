@@ -2,6 +2,8 @@ package com.demo.account.ui.controller.account;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * Account entity.
  *
@@ -11,7 +13,9 @@ import lombok.*;
 @Getter
 @EqualsAndHashCode( of = "user" )
 @RequiredArgsConstructor( access = AccessLevel.PACKAGE )
-public class Account {
+public class Account implements Serializable {
+
+	private static final long serialVersionUID = 779517484250084699L;
 
 	private final String user;
 
