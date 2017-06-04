@@ -58,11 +58,10 @@ public class AccountEndpointTests {
 
 		// given
 		Account account = new Account( "user", "name" );
-		//		given( service.insert( account ) ).willReturn( account );
 
 		// when
 		//@formatter:off
-		MvcResult result = this.mockMvc.perform( post( "/account" )
+		this.mockMvc.perform( post( "/account" )
 													.content( mapper.writeValueAsString( account ) )
 													.contentType( MediaType.APPLICATION_JSON ) )
 			.andExpect( status().isNoContent() ).andReturn();
