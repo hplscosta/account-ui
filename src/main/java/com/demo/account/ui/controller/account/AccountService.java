@@ -18,9 +18,9 @@ import org.springframework.util.Assert;
 @RequiredArgsConstructor
 public class AccountService {
 
-	private final String redisChannel;
+	private final String topic;
 
-	private final RedisTemplate redisTemplate;
+	private final RedisTemplate<String, Account> redisTemplate;
 
 	/**
 	 * Validates mandatory properties and send account to redis server.
@@ -31,6 +31,6 @@ public class AccountService {
 		Assert.hasText( account.getUser(), "User cannot be empty." );
 		Assert.hasText( account.getName(), "Name cannot be empty." );
 		log.info( "Sending user {} with name {} to redis", account.getUser(), account.getName() );
-		redisTemplate.convertAndSend( redisChannel, account );
+		redisTemplate.convertAndSend( topic, account );
 	}
 }
