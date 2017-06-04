@@ -57,7 +57,7 @@ public class AccountEndpointTests {
 	public void valid_create_account() throws Exception {
 
 		// given
-		Account account = new Account( "user", "name" );
+		Account account = new Account( "user", "name", null, null );
 
 		// when
 		//@formatter:off
@@ -79,7 +79,7 @@ public class AccountEndpointTests {
 	public void invalid_save_account_missing_mandatory_fields() throws Exception {
 
 		// given
-		Account account = new Account( "user", "name" );
+		Account account = new Account( "user", "name", null, null );
 		doThrow( new IllegalArgumentException( "User cannot be empty." ) ).when( service ).insert( account );
 
 		// when

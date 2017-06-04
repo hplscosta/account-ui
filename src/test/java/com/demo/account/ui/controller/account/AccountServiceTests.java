@@ -40,7 +40,7 @@ public class AccountServiceTests {
 	public void valid_insert_new_account() {
 
 		// given
-		Account account = new Account( "user", "name" );
+		Account account = new Account( "user", "name", 10, new Address( "city", "country" ) );
 
 		// when
 		service.insert( account );
@@ -57,7 +57,7 @@ public class AccountServiceTests {
 	public void invalid_insert_account_missing_user() {
 
 		// given
-		Account account = new Account( null, "name" );
+		Account account = new Account( null, "name", 10, new Address( "city", "country" ) );
 
 		// when
 		service.insert( account );
@@ -71,7 +71,7 @@ public class AccountServiceTests {
 	public void invalid_insert_account_missing_name() {
 
 		// given
-		Account account = new Account( "user", null );
+		Account account = new Account( "user", null, 10, new Address( "city", "country" ) );
 
 		// when
 		service.insert( account );

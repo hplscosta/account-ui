@@ -24,9 +24,7 @@ public class AccountTests {
 	public void valid_account() {
 
 		// given
-		Account account = new Account( "user", "name" );
-		account.setAge( 10 );
-		account.setAddress( new Address( "city", "country" ) );
+		Account account = new Account( "user", "name", 10, new Address( "city", "country" ) );
 
 		// asserts
 		assertThat( account.getUser() ).isEqualTo( "user" );
@@ -45,7 +43,7 @@ public class AccountTests {
 	public void valid_account_mandatory_properties() {
 
 		// given
-		Account account = new Account( "user", "name" );
+		Account account = new Account( "user", "name", null, null );
 
 		// asserts
 		assertThat( account.getUser() ).isEqualTo( "user" );
