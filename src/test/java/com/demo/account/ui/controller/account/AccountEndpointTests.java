@@ -61,7 +61,7 @@ public class AccountEndpointTests {
 
 		// when
 		//@formatter:off
-		this.mockMvc.perform( post( "/account" )
+		this.mockMvc.perform( post( "/demo/account" )
 													.content( mapper.writeValueAsString( account ) )
 													.contentType( MediaType.APPLICATION_JSON ) )
 			.andExpect( status().isNoContent() ).andReturn();
@@ -84,7 +84,7 @@ public class AccountEndpointTests {
 
 		// when
 		//@formatter:off
-		MvcResult result = this.mockMvc.perform( post( "/account" )
+		MvcResult result = this.mockMvc.perform( post( "/demo/account" )
 													.content( mapper.writeValueAsString( account ) )
 													.contentType( MediaType.APPLICATION_JSON ) )
 			.andExpect( status().isBadRequest() ).andReturn();
