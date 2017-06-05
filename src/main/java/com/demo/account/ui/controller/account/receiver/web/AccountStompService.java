@@ -20,11 +20,15 @@ import org.springframework.web.socket.messaging.WebSocketStompClient;
 @RequiredArgsConstructor
 public class AccountStompService {
 
-	private final String destination;
+	private static final String LOCALHOST = "ws://127.0.0.1";
+
+	private static final String DESTINATION = "/accounts";
+
+	private static final String ENDPOINT = "/account-ws-endpoint";
 
 	private final WebSocketStompClient stompClient;
 
-	private final String url;
+	private final Integer port;
 
 	private StompSession session;
 
@@ -33,12 +37,12 @@ public class AccountStompService {
 		if ( session == null || !session.isConnected() ) {
 			startSession();
 		}
-		session.send( destination, account );
+		session.send( DESTINATION, account );
 	}
 
 	private void startSession() {
 		try {
-			session = stompClient.connect( url, new AccountStompSessionHandler() ).get();
+			session = stompClient.connect( new StringBuilder().append( LOCALHOST ).append( ":" ).append( port ).append( ENDPOINT ).toString(), new AccountStompSessionHandler() ).get();
 		}
 		catch ( Exception e ) {
 			throw new RuntimeException( e );
