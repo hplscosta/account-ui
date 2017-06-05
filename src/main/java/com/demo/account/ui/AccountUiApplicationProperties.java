@@ -13,17 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties( prefix = "demo.ui" )
 public class AccountUiApplicationProperties {
 
-	private StompProperties stomp = new StompProperties();
-
 	private AccountServiceProperties accountService = new AccountServiceProperties();
-
-	@Data
-	public static class StompProperties {
-
-		private String url;
-
-		private String topic;
-	}
 
 	@Data
 	public static class AccountServiceProperties {
