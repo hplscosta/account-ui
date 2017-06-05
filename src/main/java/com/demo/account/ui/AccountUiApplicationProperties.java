@@ -4,21 +4,32 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * Application properties
+ * Application properties.
  *
  * @author Hugo Costa
  * @since 1.0.0
  */
 @Data
-@ConfigurationProperties( prefix = "demo" )
+@ConfigurationProperties( prefix = "demo.ui" )
 public class AccountUiApplicationProperties {
 
+	private StompProperties stomp = new StompProperties();
+
 	private AccountServiceProperties accountService = new AccountServiceProperties();
+
+	@Data
+	public static class StompProperties {
+
+		private String url;
+
+		private String topic;
+	}
 
 	@Data
 	public static class AccountServiceProperties {
 
 		private String url;
+
 		private String topic = "accounts";
 	}
 }
