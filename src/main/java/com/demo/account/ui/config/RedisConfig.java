@@ -17,7 +17,8 @@ import org.springframework.data.redis.serializer.SerializationException;
 /**
  * Redis configuration.<br>
  * Creates {@link RedisTemplate} to send message to redis server.<br>
- * Instantiate {@link MessageListenerAdapter} to handle messages from redis server. Handles messages with {@link AccountReceiver}.
+ * Instantiate {@link MessageListenerAdapter} to handle messages from redis server. Handles messages with {@link AccountReceiver}.<br>
+ * Initialize {@link RedisMessageListenerContainer} with {@link ChannelTopic} to receive messages from redis server.
  *
  * @author Hugo Costa
  * @since 1.0.0
