@@ -2,7 +2,6 @@ package com.demo.account.ui.config;
 
 import com.demo.account.ui.AccountUiApplicationProperties;
 import com.demo.account.ui.controller.account.Account;
-import com.demo.account.ui.controller.account.client.AccountServiceClient;
 import com.demo.account.ui.controller.account.receiver.AccountReceiver;
 import org.apache.commons.lang.SerializationUtils;
 import org.springframework.context.annotation.Bean;
@@ -40,8 +39,8 @@ public class RedisConfig {
 	}
 
 	@Bean
-	public MessageListenerAdapter messageListenerAdapter( AccountServiceClient accountServiceClient ) {
-		MessageListenerAdapter messageListenerAdapter = new MessageListenerAdapter( new AccountReceiver( accountServiceClient ), RECEIVER_METHOD );
+	public MessageListenerAdapter messageListenerAdapter( AccountReceiver accountReceiver ) {
+		MessageListenerAdapter messageListenerAdapter = new MessageListenerAdapter( accountReceiver, RECEIVER_METHOD );
 		messageListenerAdapter.setSerializer( accountRedisSerializer() );
 		return messageListenerAdapter;
 	}
