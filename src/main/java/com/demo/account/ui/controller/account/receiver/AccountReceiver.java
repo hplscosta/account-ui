@@ -24,7 +24,11 @@ public class AccountReceiver {
 
 	public void receive( Account account ) {
 		log.info( "Account user {} received!", account.getUser() );
-		accountServiceClient.create( account );
-		accountStompService.send( account );
+		try {
+			accountServiceClient.create( account );
+			accountStompService.send( account );
+		} catch ( Exception e ) {
+			log.error( "Error processing message from redis", e );
+		}
 	}
 }
